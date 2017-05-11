@@ -8,30 +8,20 @@ package electronicshop;
  */
 
 /**
- *
  * @author rajkumar
  */
 public class TEST {
-    public static void main(String args []){        
+
+    public static void main(String args[]) throws StockLimitException {
+
         Stocks stock = new Stocks();
-        try{
-            stock.populateStockFromFile("Stocks.txt");
-        }
-        catch(StockLimitException ex){
+        stock.populateStockFromFile("Stocks.txt");
+
+        try {
+            stock.populateStockFromConsole();
+            stock.writeIntoRepository();
+        } catch (StockLimitException ex) {
             System.out.println(ex.returnMsg());
-        }
-//        try{
-//            stock.populateStockFromConsole();
-//            stock.writeIntoRepository();
-//        }
-//        catch(StockLimitException ex){
-//            System.out.println(ex.returnMsg());
-//        }
-        
-        System.out.println("In the main Function");
-        System.out.println(stock.totalCurrentStocks());
-        for (int i = 0; i < stock.totalCurrentStocks(); i++){
-            System.out.println(stock.stocks[i].toString());
         }
     }
 }

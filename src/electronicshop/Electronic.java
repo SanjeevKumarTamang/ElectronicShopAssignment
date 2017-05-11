@@ -15,6 +15,9 @@ import java.io.Serializable;
 public class Electronic implements Serializable{
     private static final long serialVersionUID = 1L;
 
+    private String brandName;
+    private double screenSize;
+    private int type;
     private int warranty;
 
     public String getBrandName() {
@@ -28,10 +31,6 @@ public class Electronic implements Serializable{
     public int getType() {
         return type;
     }
-
-    private String brandName;
-    private double screenSize;
-    private int type;
 
     public double getQuantity() {
         return quantity;
