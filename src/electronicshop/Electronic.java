@@ -37,7 +37,7 @@ public class Electronic implements Serializable{
         return quantity;
     }
 
-    private double quantity;
+    private int quantity;
     
     public Electronic(){
         this.warranty = 2;

@@ -1,3 +1,10 @@
-Type: 1	Warranty: 1	Brand Name: 1	ScreenSize: 1.0	Quantity: 1.0	Storage: 1
-Type: 1	Warranty: 1	Brand Name: 1	ScreenSize: 1.0	Quantity: 1.0	Storage: 1
-Type: 1	Warranty: 1	Brand Name: 1	ScreenSize: 1.0	Quantity: 1.0	Storage: 1
+Type: 1	Warranty: 1	Brand Name: Samsung	ScreenSize: 6	Quantity: 30	Storage: 4
+Type: 1	Warranty: 1	Brand Name: Huawei	ScreenSize: 5.0	Quantity: 40	Storage: 4
+Type: 1	Warranty: 1	Brand Name: Iphone	ScreenSize: 5.0	Quantity: 25	Storage: 1
+Type: 1	Warranty: 1	Brand Name: Lg	ScreenSize: 4.0	Quantity: 50	Storage: 2
+Type: 2	Warranty: 4	Brand Name: Samsung	ScreenSize: 40.0	Quantity: 30    EnergyRating: 30.0	Weight: 20.0
+Type: 2	Warranty: 5	Brand Name: Philips	ScreenSize: 60.0	Quantity: 10	EnergyRating: 70.0	Weight: 30.0
+Type: 2	Warranty: 6	Brand Name: Sony	ScreenSize: 21.0	Quantity: 8	EnergyRating: 80.0	Weight: 40.0
+Type: 3	Warranty: 2	Brand Name: Dell	ScreenSize: 15.0	Quantity: 30	Ram: 2	OperatingSystem: Windows
+Type: 3	Warranty: 2	Brand Name: Acer	ScreenSize: 6.0	Quantity: 30	Ram: 4	OperatingSystem: Linux
+Type: 3	Warranty: 1	Brand Name: Sony	ScreenSize: 17.0	Quantity: 40	Ram: 4OperatingSystem: IOS

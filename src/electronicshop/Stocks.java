@@ -61,74 +61,65 @@ public class Stocks implements StockLimit {
 
     public void populateStockFromFile(String fileName) throws StockLimitException {
         String delims = "[: ]+";
-        String[] inputs = new String[100];
-        int index = 0;
+        String[] inputs = new String[200];
+        int i = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
-                if (line.length() > 1) {
-                    inputs[index++] = line;
-                }
-            }
-            System.out.println(index);
-            for (int i = 0; i < index; ) {
-                //System.out.println(inputs[i]);
+             inputs=line.split("\\t");
                 String[] tokens = inputs[i].split(delims);
                 if (tokens[0].equals("Type") & tokens[1].equals("1")) { // This is smartphone type
-                    System.out.println("Type 1 object found");
-                    int quantity = Integer.parseInt(inputs[i + 1].split(delims)[1]);
-                    String brand = inputs[i + 2].split(delims)[1];
+
+                    int quantity = Integer.parseInt(inputs[i + 4].split(delims)[1]);
+                    int warranty = Integer.parseInt(inputs[i + 1].split(delims)[1]);
+                    String brand = inputs[i + 1].split(delims)[1];
                     double screenSize = Double.parseDouble(inputs[i + 3].split(delims)[1]);
-                    int storage = Integer.parseInt(inputs[i + 4].split(delims)[1]);
+                    int storage = Integer.parseInt(inputs[i + 5].split(delims)[1]);
 
                     if (this.currentPhoneStock + quantity <= MAXPHONESTOCK) {
+                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                         for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++) {
-                            this.stocks[j] = new SmartPhone(brand, screenSize, storage, 1, 1,quantity); // Assuming two years of warranty
+                            this.stocks[j] = new SmartPhone(brand, screenSize, storage,warranty , 1, quantity); // Assuming two years of warranty
                         }
                         this.currentPhoneStock += quantity;
-                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                     }
-
-                    i += 5;
                 }
 
+
                 if (tokens[0].equals("Type") & tokens[1].equals("2")) { // This is smartphone type
-                    System.out.println("Type 2 object found");
-                    int quantity = Integer.parseInt(inputs[i + 1].split(delims)[1]);
-                    String brand = inputs[i + 2].split(delims)[1];
+
+                    int quantity = Integer.parseInt(inputs[i + 4].split(delims)[1]);
+                    int warranty = Integer.parseInt(inputs[i + 1].split(delims)[1]);
+                    String brand = inputs[i + 1].split(delims)[1];
                     double screenSize = Double.parseDouble(inputs[i + 3].split(delims)[1]);
-                    double energyRating = Double.parseDouble(inputs[i + 4].split(delims)[1]);
-                    double weight = Double.parseDouble(inputs[i + 5].split(delims)[1]);
+                    int energyRating = Integer.parseInt(inputs[i + 5].split(delims)[1]);
+                    int weight = Integer.parseInt(inputs[i + 6].split(delims)[1]);
 
                     if (this.currentTVStock + quantity <= MAXTVSTOCK) {
+                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                         for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++) {
-                            this.stocks[j] = new Television(2, brand, screenSize, energyRating, weight, 2,quantity); // Assuming two years of warranty
+                            this.stocks[j] =  new Television(warranty, brand, screenSize, energyRating, weight, 2,quantity);// Assuming two years of warranty
                         }
                         this.currentTVStock += quantity;
-                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                     }
-
-                    i += 6;
                 }
 
                 if (tokens[0].equals("Type") & tokens[1].equals("3")) { // This is smartphone type
-                    System.out.println("Type 3 object found");
-                    int quantity = Integer.parseInt(inputs[i + 1].split(delims)[1]);
-                    String brand = inputs[i + 2].split(delims)[1];
+
+                    int quantity = Integer.parseInt(inputs[i + 4].split(delims)[1]);
+                    int warranty = Integer.parseInt(inputs[i + 1].split(delims)[1]);
+                    String brand = inputs[i + 1].split(delims)[1];
                     double screenSize = Double.parseDouble(inputs[i + 3].split(delims)[1]);
-                    int RAM = Integer.parseInt(inputs[i + 4].split(delims)[1]);
-                    String OS = (inputs[i + 5].split(delims)[1]);
+                    int ram = Integer.parseInt(inputs[i + 5].split(delims)[1]);
+                    String os= inputs[i + 6].split(delims)[1];
 
                     if (this.currentLaptopStock + quantity <= MAXLAPTOPSTOCK) {
+                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                         for (int j = this.totalCurrentStocks(); j < this.totalCurrentStocks() + quantity; j++) {
-                            this.stocks[j] = new Laptop(3, brand, screenSize, RAM, OS, 3,quantity); // Assuming two years of warranty
+                            this.stocks[j] = new Laptop(warranty, brand, screenSize, ram, os, 3,quantity);// Assuming two years of warranty
                         }
                         this.currentLaptopStock += quantity;
-                        if (this.totalCurrentStocks() >= TOTALSTOCK) throw new StockLimitException();
                     }
-
-                    i += 6;
                 }
 
             }
@@ -144,12 +135,17 @@ public class Stocks implements StockLimit {
         try {
             fw = new FileWriter("Stocks.txt", true);
             bw=new BufferedWriter(fw);
-            for (Electronic electronic : this.stocks) {
-                if (electronic != null) {
-                            bw.write(electronic.toString());
-                            bw.newLine();
-                }
+
+            for(int i=0;i<totalCurrentStocks();i++){
+                    bw.write(this.stocks[i].toString());
+                    bw.newLine();
             }
+//            for (Electronic electronic : this.stocks) {
+//                if (electronic != null) {
+//                            bw.write(electronic.toString());
+//                            bw.newLine();
+//                }
+//            }
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
         }
