@@ -1,4 +1,4 @@
-Type: 1,Warranty: 1,BrandName: Samsung,ScreenSize: 6,Quantity: 43,Storage: 4
+Type: 1,Warranty: 1,BrandName: Samsung,ScreenSize: 6,Quantity: 400,Storage: 4
 Type: 1,Warranty: 1,BrandName: Huawei,ScreenSize: 5,Quantity: 40,Storage: 4
 Type: 1,Warranty: 1,BrandName: Iphone,ScreenSize: 5,Quantity: 25,Storage: 1
 Type: 1,Warranty: 1,BrandName: Lg,ScreenSize: 4.0,Quantity: 50,Storage: 2
