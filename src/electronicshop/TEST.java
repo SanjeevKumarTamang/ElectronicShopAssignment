@@ -35,10 +35,10 @@ public class TEST {
             } catch (StockLimitException ex) {
                 System.out.println(ex.returnMsg());
             } finally {
-                stock.writeIntoRepository();
                 System.out.println("Completed addition of the stocks. Please see Repository.txt file to see the product list.");
                 System.out.println("Exitting from program");
             }
         }
+        stock.writeIntoRepository();
     }
 }
