@@ -6,8 +6,7 @@ package electronicshop;
  */
 
 /**
- *
- * @author rajkumar
+ * @author sanjeev kumar tamang
  */
 public class SmartPhone extends Electronic {
     private int storage;

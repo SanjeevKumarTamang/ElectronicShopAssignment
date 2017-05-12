@@ -6,8 +6,7 @@ package electronicshop;
  */
 
 /**
- *
- * @author rajkumar
+ * @author sanjeev kumar tamang
  */
 public interface StockLimit {
     public static final int MAXPHONESTOCK = 200;

@@ -8,9 +8,8 @@ package electronicshop;
  */
 
 import java.util.Scanner;
-
 /**
- * @author rajkumar
+ * @author sanjeev kumar tamang
  */
 public class TEST {
 

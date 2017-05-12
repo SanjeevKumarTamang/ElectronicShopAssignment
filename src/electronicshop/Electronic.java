@@ -9,8 +9,7 @@ package electronicshop;
 import java.io.Serializable;
 
 /**
- *
- * @author rajkumar
+ * @author sanjeev kumar tamang
  */
 public class Electronic implements Serializable{
     private static final long serialVersionUID = 1L;

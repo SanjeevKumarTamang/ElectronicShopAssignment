@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * @author rajkumar
+ * @author sanjeev kumar tamang
  */
 public class Stocks implements StockLimit {
 
